@@ -8,14 +8,16 @@ public class Bullet : MonoBehaviour
 
     public float speed = 70f;
     public int bulletDamageArqueiro = 10;
-    private GameObject enemy;
     public int damageDeal = 0;
     
     public void Perseguir(Transform _target)
     {
         target = _target;
     }
-
+    void Start()
+    {
+        
+    }
     
     void Update()
     {
@@ -30,7 +32,7 @@ public class Bullet : MonoBehaviour
 
         if(dir.magnitude <= distanceThisFrame )
         {
-            HitTarget();
+            
             return;
         }
 
@@ -39,9 +41,20 @@ public class Bullet : MonoBehaviour
 
     }
 
-    void HitTarget()
+    void OnTriggerEnter(Collider other)
     {
-        
-        Debug.Log("Dano foi de: " +  bulletDamageArqueiro);
+        // Verifica se o objeto colidido tem o script Enemy
+        Enemy enemyScript = other.gameObject.GetComponent<Enemy>();
+
+
+        // Aplica o dano ao inimigo
+        if (enemyScript != null)
+        {
+            enemyScript.DamageTake(bulletDamageArqueiro);
+            Debug.Log("Dano causado: " + bulletDamageArqueiro);
+
+            
+
+        }
     }
 }
