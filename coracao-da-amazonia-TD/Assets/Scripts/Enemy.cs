@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [Header("Atributos")]
     //Velocidade do inimigo
     public float speed = 10.0f;
 
@@ -12,17 +13,26 @@ public class Enemy : MonoBehaviour
     private Transform target;
     //Indice que rastreia o waypoint atual no array de waypoints
     private int wavepointIndex = 0;
-    public GameObject hpPlayer;
+
+
+    
+    //Puxar script do player
+    private GameObject hpPlayer;
+
+    //Chama Script Money
+    private GameObject moneyManager;
+
+
     void Start()
     {
-
+        //Procura o script do player no GameMaster
         hpPlayer = GameObject.Find("GameMaster");
-        
+        moneyManager = GameObject.Find("GameMaster"); ;
 
         //Define o primeiro waypoint como alvo para o inimigo se mover
         target = Waypoints.points[0];
     }
-    
+
     void Update()
     {
         //Calcula a direçao entre a posiçao atual do inimigo e o proximo waypoint
@@ -48,12 +58,22 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
             hpPlayer.GetComponent<HpPlayer>().Perder();
             return;
-            
+
         }
         //Se nao, define o proximo waypoint na lista como o novo alvo
         wavepointIndex++;
         target = Waypoints.points[wavepointIndex];
     }
 
-    
+    public void DamageTake(int dano)
+    {
+
+        hpEnemy = hpEnemy - dano;
+        if (hpEnemy == 0)
+        {
+            Destroy(gameObject); // Destroi o inimigo
+            moneyManager.GetComponent<MoneyManager>().AddMoney(35);
+        }
+        return;
+    }
 }
