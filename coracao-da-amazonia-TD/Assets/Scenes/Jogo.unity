@@ -2007,7 +2007,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e6cf15ed811954da730fb3358d6471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 2862614021333774511, guid: e6f925782f1ad3841bb518269281054e, type: 3}
+  waves:
+  - enemy: {fileID: 5723091321364864973, guid: e6f925782f1ad3841bb518269281054e, type: 3}
+    count: 1
+    rate: 0
   spawnPoint: {fileID: 2062710946}
   timeBetweenWaves: 5
   waveCountdownText: {fileID: 1876638073}

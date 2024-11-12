@@ -5,6 +5,7 @@ public class Arqueiro : MonoBehaviour
 {
 
     private Transform target;
+    private Enemy targetEnemy;
     [Header("Atributos")]
     
     public float range = 15f;
@@ -46,6 +47,7 @@ public class Arqueiro : MonoBehaviour
         if (nearestEnemy != null && shortestDistance <= range)
         {
             target = nearestEnemy.transform;
+            targetEnemy = nearestEnemy.GetComponent<Enemy>();
         }
         else
         {

@@ -121,7 +121,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   hpEnemy: 50
-  hpPlayer: {fileID: 0}
 --- !u!54 &4737512953053057212
 Rigidbody:
   m_ObjectHideFlags: 0
