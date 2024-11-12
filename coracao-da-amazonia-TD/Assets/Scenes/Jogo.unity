@@ -2010,7 +2010,19 @@ MonoBehaviour:
   waves:
   - enemy: {fileID: 5723091321364864973, guid: e6f925782f1ad3841bb518269281054e, type: 3}
     count: 1
-    rate: 0
+    rate: 2
+  - enemy: {fileID: 5723091321364864973, guid: e6f925782f1ad3841bb518269281054e, type: 3}
+    count: 2
+    rate: 2
+  - enemy: {fileID: 5723091321364864973, guid: e6f925782f1ad3841bb518269281054e, type: 3}
+    count: 5
+    rate: 2
+  - enemy: {fileID: 5723091321364864973, guid: b3e373520d12d5541bc49bdd3c7297d5, type: 3}
+    count: 3
+    rate: 1
+  - enemy: {fileID: 5723091321364864973, guid: b69773bc507da474bbd00ad7fe6b66d8, type: 3}
+    count: 10
+    rate: 1
   spawnPoint: {fileID: 2062710946}
   timeBetweenWaves: 5
   waveCountdownText: {fileID: 1876638073}
