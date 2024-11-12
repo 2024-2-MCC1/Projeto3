@@ -14,7 +14,7 @@ public class TowerMenu : MonoBehaviour
     void Start()
     {
         moneyManager = GameObject.Find("GameMaster"); ;
-        overlay.SetActive(true);
+        
         
     }
 
@@ -35,18 +35,20 @@ public class TowerMenu : MonoBehaviour
             {
                 selectedNode.Arqueiro();
                 moneyManager.GetComponent<MoneyManager>().SubtractMoney(100);
-                towerMenu.SetActive(false);
-                overlay.SetActive(false);
+                HidePanel();
             }
             
             
         }
     }
-    // Update is called once per frame
-    void Update()
+    
+    public void OverlayClick()
     {
-        
-        
-            
+        HidePanel ();
+    }
+    void HidePanel()
+    {
+        towerMenu.SetActive(false);
+        overlay.SetActive(false);
     }
 }

@@ -17,7 +17,8 @@ public class Node : MonoBehaviour
 
     //config do panel TowerMenu
     public GameObject panel;  // Referência ao panel
-    private bool isPanelActive = false;
+    public GameObject overlay;
+   
 
     void Start()
     {
@@ -32,6 +33,7 @@ public class Node : MonoBehaviour
         if (panel != null)
         {
             panel.SetActive(false);
+            overlay.SetActive(false);
         }
     }
 
@@ -47,12 +49,14 @@ public class Node : MonoBehaviour
             
         }
         else 
-        { 
-            if (panel != null)
+        {
+            
+            if (panel == false && overlay == false)
             {
                 // Alterna a visibilidade do painel
-                isPanelActive = !isPanelActive;
-                panel.SetActive(isPanelActive);
+                
+                panel.SetActive(true);
+                overlay.SetActive(true);
                 TowerMenu.Instance.SelectNode(this);
             }
         }
