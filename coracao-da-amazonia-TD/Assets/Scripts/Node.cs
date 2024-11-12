@@ -2,18 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Node : MonoBehaviour
 {
     public Color hoverColor;
     public Vector3 positionOffset;
 
-    private GameObject arqueiro;
-
+    
     private Renderer rend;
     private Color startColor;
 
-    //Chama Script Money
-    public GameObject moneyManager;
+    private GameObject arqueiro;
+
+
+    //config do panel TowerMenu
+    public GameObject panel;  // Referência ao panel
+    private bool isPanelActive = false;
 
     void Start()
     {
@@ -22,8 +26,13 @@ public class Node : MonoBehaviour
         //cor inicial do node
         startColor = rend.material.color;
 
-        //Puxa script money para ser utilizado no node
-        moneyManager = GameObject.Find("GameMaster"); ;
+        
+
+        //seta o panel como desativado
+        if (panel != null)
+        {
+            panel.SetActive(false);
+        }
     }
 
     //quando o jogador clica no node
@@ -35,19 +44,28 @@ public class Node : MonoBehaviour
             //se sim, impede que outro objeto seja construido no mesmo lugar
             Debug.Log("Não da pra construir ai!");
             return;
+            
         }
-        moneyManager.GetComponent<MoneyManager>().MoneyCheck(100);
-        if(moneyManager.GetComponent<MoneyManager>().moneyValidate == true) 
+        else 
         { 
-            //prefab do arqueiro construido atraves do BuildManager
-            GameObject arqueiroToBuild = BuildManager.instance.GetArqueiroToBuild();
-            //instancia o personagem no node, ajustando a posiçao com um positionOffset no ponto Y
-            arqueiro = (GameObject)Instantiate(arqueiroToBuild, transform.position + positionOffset, transform.rotation);
-            moneyManager.GetComponent<MoneyManager>().SubtractMoney(100);
-
+            if (panel != null)
+            {
+                // Alterna a visibilidade do painel
+                isPanelActive = !isPanelActive;
+                panel.SetActive(isPanelActive);
+                TowerMenu.Instance.SelectNode(this);
+            }
         }
+    }
 
-    
+    public void Arqueiro()
+    {
+        
+        //prefab do arqueiro construido atraves do BuildManager
+        GameObject arqueiroToBuild = BuildManager.instance.GetArqueiroToBuild();
+        //instancia o personagem no node, ajustando a posiçao com um positionOffset no ponto Y
+        arqueiro = (GameObject)Instantiate(arqueiroToBuild, transform.position + positionOffset, transform.rotation);
+        
     }
 
     //quando o cursor do mouse passa sobre o node
