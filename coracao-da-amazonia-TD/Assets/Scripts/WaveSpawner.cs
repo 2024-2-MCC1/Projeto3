@@ -4,12 +4,15 @@ using TMPro;
 
 public class WaveSpawner : MonoBehaviour
 {
-    public Transform enemyPrefab;
+    public static int EnemiesAlive = 0;
+
+    public Wave[] waves;
+
     //ponto onde os inimigos vao aparecer
     public Transform spawnPoint;
 
     //tempo entre o final de uma onda e o inicio da proxima
-    public float timeBetweenWaves = 5f;
+    public float timeBetweenWaves = 3f;
     //contador inicial da primeira onda
     private float countdown = 5f;
 
@@ -21,36 +24,44 @@ public class WaveSpawner : MonoBehaviour
 
     void Update ()
     {
+        if(EnemiesAlive > 0)
+        {
+            return;
+        }
         //quando o contador atinge zero ou menos, o metodo SpawnWave é chamado como uma corrotina para inciciar uma nova onda de inimigos
         if(countdown <= 0f)
         {
             StartCoroutine(SpawnWave());
             //apos iniciar a onda o countdown é reiniciado
             countdown = timeBetweenWaves;
+            return;
         }
-        //atualiza o texto da contagem arredondando o valor pra cima
-        waveCountdownText.text = Mathf.Ceil(countdown).ToString();
+        
         //decrementa o contador em tempo real
         countdown -= Time.deltaTime;
+        countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
+        waveCountdownText.text = string.Format("{0:00.00}", countdown);
     }
     //Corrotina responsavel por criar uma nova onda
     IEnumerator SpawnWave ()
     {
+        Wave wave = waves[waveIndex];
+
+        //gera um numero de inimigos equivalente ao valor atual da waveIndex (a cada onda, aparecem mais inimigos)
+        for (int i = 0; i < wave.count; i++)
+        {
+            SpawnEnemy(wave.enemy);
+            //espera 0,5 segundos entre cada inimigo
+            yield return new WaitForSeconds(1f / wave.rate);
+        }
         //incrementa o numero da onda
         waveIndex++;
-        //gera um numero de inimigos equivalente ao valor atual da waveIndex (a cada onda, aparecem mais inimigos)
-        for (int i = 0; i < waveIndex; i++)
-        {
-            SpawnEnemy();
-            //espera 0,5 segundos entre cada inimigo
-            yield return new WaitForSeconds(0.5f);
-        }
-        
     }
 
-    void SpawnEnemy ()
+    void SpawnEnemy (GameObject enemy)
     {
         //instancia um novo inimigo na posiçao e rotaçao do spawnPoint
-        Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
+        EnemiesAlive++;
     }
 }

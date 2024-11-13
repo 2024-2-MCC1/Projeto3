@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6107280442448632581}
   - component: {fileID: 4737512953053057212}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy_Forte
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e668d7e03b039bb4d99ae84c937225e2, type: 2}
+  - {fileID: 2100000, guid: 130c0cee1ec609342bdf8be4373a599c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -119,9 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce88c24d0f7df9146b2f739ab83bc48f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  hpEnemy: 50
-  hpPlayer: {fileID: 0}
+  speed: 7
+  hpEnemy: 350
 --- !u!54 &4737512953053057212
 Rigidbody:
   m_ObjectHideFlags: 0

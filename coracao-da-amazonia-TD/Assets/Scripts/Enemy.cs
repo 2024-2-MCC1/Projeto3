@@ -55,6 +55,7 @@ public class Enemy : MonoBehaviour
         {
             //Se sim, signfica que completou o caminho e destroi o objeto e dá dano
             hpPlayer.GetComponent<HpPlayer>().TomarDano(1);
+            WaveSpawner.EnemiesAlive--;
             Destroy(gameObject);
             hpPlayer.GetComponent<HpPlayer>().Perder();
             return;
@@ -71,8 +72,11 @@ public class Enemy : MonoBehaviour
         hpEnemy = hpEnemy - dano;
         if (hpEnemy == 0)
         {
+            WaveSpawner.EnemiesAlive--;
             Destroy(gameObject); // Destroi o inimigo
             moneyManager.GetComponent<MoneyManager>().AddMoney(35);
+
+            
         }
         return;
     }
