@@ -42,25 +42,22 @@ public class Node : MonoBehaviour
     {
         if (panel.activeSelf)
         {
-            Debug.Log("Painel já está ativo. Clique ignorado.");
             return; // Interrompe o método se o painel estiver ativo
         }
 
-        Debug.Log("Node clicado!");
-            //verifica se tem objeto construido neste node
-            if (arqueiro != null)
-            {
-                //se sim, impede que outro objeto seja construido no mesmo lugar
-                Debug.Log("Não da pra construir ai!");
-                return;
+        
+        //verifica se tem objeto construido neste node
+        if (arqueiro != null)
+        {
+            //se sim, impede que outro objeto seja construido no mesmo lugar
+            return;
+        }
+        else
+        {
+            panel.SetActive(true);
+            TowerMenu.Instance.SelectNode(this);
 
-            }
-            else
-            {
-                panel.SetActive(true);
-                TowerMenu.Instance.SelectNode(this);
-
-            }
+        }
         
     }
 
@@ -71,7 +68,7 @@ public class Node : MonoBehaviour
         GameObject arqueiroToBuild = BuildManager.instance.GetArqueiroToBuild();
         //instancia o personagem no node, ajustando a posiçao com um positionOffset no ponto Y
         arqueiro = (GameObject)Instantiate(arqueiroToBuild, transform.position + positionOffset, transform.rotation);
-        Debug.Log("acionado");
+        
     }
 
     //quando o cursor do mouse passa sobre o node

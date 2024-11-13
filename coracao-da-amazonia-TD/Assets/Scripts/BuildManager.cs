@@ -30,7 +30,7 @@ public class BuildManager : MonoBehaviour
         
     }
     //prefab privada
-    private GameObject arqueiroToBuild;
+    public GameObject arqueiroToBuild;
     //metodo publico  para obter o prefab do arqueiro a ser contruido. Metodo retorna arqueiroToBuild e permite que todos os scripts acessem o prefab configurado para construçao
     public GameObject GetArqueiroToBuild()
     { 

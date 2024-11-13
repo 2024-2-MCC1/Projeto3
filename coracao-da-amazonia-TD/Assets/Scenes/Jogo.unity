@@ -433,7 +433,7 @@ Transform:
   m_GameObject: {fileID: 170257051}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 30.4, y: 0, z: -28.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -452,6 +452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standardArqueiroPrefab: {fileID: 6407390309309116305, guid: 9be09256a4e36b74fb2444849d359234, type: 3}
+  arqueiroToBuild: {fileID: 0}
 --- !u!1 &193738919
 GameObject:
   m_ObjectHideFlags: 0
@@ -4112,6 +4113,66 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173709217}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1832788498
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6713131099165090924, guid: 155d4156bc5180443be9135e46dfecf0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713131099165090924, guid: 155d4156bc5180443be9135e46dfecf0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713131099165090924, guid: 155d4156bc5180443be9135e46dfecf0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713131099165090924, guid: 155d4156bc5180443be9135e46dfecf0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713131099165090924, guid: 155d4156bc5180443be9135e46dfecf0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713131099165090924, guid: 155d4156bc5180443be9135e46dfecf0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713131099165090924, guid: 155d4156bc5180443be9135e46dfecf0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713131099165090924, guid: 155d4156bc5180443be9135e46dfecf0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713131099165090924, guid: 155d4156bc5180443be9135e46dfecf0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713131099165090924, guid: 155d4156bc5180443be9135e46dfecf0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7138641859402521286, guid: 155d4156bc5180443be9135e46dfecf0, type: 3}
+      propertyPath: m_Name
+      value: Cacique
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7138641859402521286, guid: 155d4156bc5180443be9135e46dfecf0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1876884166}
+  m_SourcePrefab: {fileID: 100100000, guid: 155d4156bc5180443be9135e46dfecf0, type: 3}
 --- !u!1 &1852902236
 GameObject:
   m_ObjectHideFlags: 0
@@ -4396,6 +4457,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1876638070}
   m_CullTransparentMesh: 1
+--- !u!1 &1876884165 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7138641859402521286, guid: 155d4156bc5180443be9135e46dfecf0, type: 3}
+  m_PrefabInstance: {fileID: 1832788498}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1876884166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876884165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5277de893f54d71428f43d43918ef07d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rangeCacique: 50
+  towerTag: Tower
+  spawner_tower: {fileID: 170257051}
+  arqueiro: {fileID: 0}
+  dist: 0
+  fireRate: 0
 --- !u!4 &1888533948 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3501847947347310539, guid: 79b624abe726706408e90a1ee9d2e248, type: 3}
@@ -7737,3 +7821,4 @@ SceneRoots:
   - {fileID: 1124936936}
   - {fileID: 2004607051}
   - {fileID: 170257054}
+  - {fileID: 1832788498}

@@ -51,10 +51,6 @@ public class Bullet : MonoBehaviour
         if (enemyScript != null)
         {
             enemyScript.DamageTake(bulletDamageArqueiro);
-            Debug.Log("Dano causado: " + bulletDamageArqueiro);
-
-            
-
         }
     }
 }
