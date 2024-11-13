@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -9,13 +10,16 @@ public class Enemy : MonoBehaviour
     public float speed = 10.0f;
 
     public int hpEnemy = 50;
+    private float health;
     //Objeto transform que indica o waypoint atual que o inimigo se dirige
     private Transform target;
     //Indice que rastreia o waypoint atual no array de waypoints
     private int wavepointIndex = 0;
 
+    [Header("Unity Stuff")]
+    public Image healthBar;
 
-    
+
     //Puxar script do player
     private GameObject hpPlayer;
 
@@ -31,7 +35,11 @@ public class Enemy : MonoBehaviour
 
         //Define o primeiro waypoint como alvo para o inimigo se mover
         target = Waypoints.points[0];
+        {
+            health = hpEnemy;
+        }
     }
+
 
     void Update()
     {
@@ -69,6 +77,9 @@ public class Enemy : MonoBehaviour
     {
 
         hpEnemy = hpEnemy - dano;
+
+        healthBar.fillAmount = health / hpEnemy;
+
         if (hpEnemy == 0)
         {
             Destroy(gameObject); // Destroi o inimigo
