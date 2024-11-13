@@ -17,7 +17,7 @@ public class Node : MonoBehaviour
 
     //config do panel TowerMenu
     public GameObject panel;  // Referência ao panel
-    public GameObject overlay;
+    
    
 
     void Start()
@@ -33,33 +33,35 @@ public class Node : MonoBehaviour
         if (panel != null)
         {
             panel.SetActive(false);
-            overlay.SetActive(false);
+           
         }
     }
 
     //quando o jogador clica no node
     void OnMouseDown()
     {
-        //verifica se tem objeto construido neste node
-        if (arqueiro != null)
+        if (panel.activeSelf)
         {
-            //se sim, impede que outro objeto seja construido no mesmo lugar
-            Debug.Log("Não da pra construir ai!");
-            return;
-            
+            Debug.Log("Painel já está ativo. Clique ignorado.");
+            return; // Interrompe o método se o painel estiver ativo
         }
-        else 
-        {
-            
-            if (panel == false && overlay == false)
+
+        Debug.Log("Node clicado!");
+            //verifica se tem objeto construido neste node
+            if (arqueiro != null)
             {
-                // Alterna a visibilidade do painel
-                
-                panel.SetActive(true);
-                overlay.SetActive(true);
-                TowerMenu.Instance.SelectNode(this);
+                //se sim, impede que outro objeto seja construido no mesmo lugar
+                Debug.Log("Não da pra construir ai!");
+                return;
+
             }
-        }
+            else
+            {
+                panel.SetActive(true);
+                TowerMenu.Instance.SelectNode(this);
+
+            }
+        
     }
 
     public void Arqueiro()
@@ -69,7 +71,7 @@ public class Node : MonoBehaviour
         GameObject arqueiroToBuild = BuildManager.instance.GetArqueiroToBuild();
         //instancia o personagem no node, ajustando a posiçao com um positionOffset no ponto Y
         arqueiro = (GameObject)Instantiate(arqueiroToBuild, transform.position + positionOffset, transform.rotation);
-        
+        Debug.Log("acionado");
     }
 
     //quando o cursor do mouse passa sobre o node

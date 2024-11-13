@@ -33,9 +33,10 @@ public class TowerMenu : MonoBehaviour
         {
             if (selectedNode != null)
             {
+                HidePanel();
                 selectedNode.Arqueiro();
                 moneyManager.GetComponent<MoneyManager>().SubtractMoney(100);
-                HidePanel();
+                
             }
             
             
@@ -49,6 +50,6 @@ public class TowerMenu : MonoBehaviour
     void HidePanel()
     {
         towerMenu.SetActive(false);
-        overlay.SetActive(false);
+        
     }
 }
