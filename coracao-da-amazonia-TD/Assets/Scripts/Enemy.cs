@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     //Velocidade do inimigo
     public float speed = 10.0f;
 
-    public int hpEnemy = 50;
+    public float hpEnemy = 50;
     //Objeto transform que indica o waypoint atual que o inimigo se dirige
     private Transform target;
     //Indice que rastreia o waypoint atual no array de waypoints
@@ -66,18 +66,22 @@ public class Enemy : MonoBehaviour
         target = Waypoints.points[wavepointIndex];
     }
 
-    public void DamageTake(int dano)
+    public void DamageTake(float dano)
     {
 
         hpEnemy = hpEnemy - dano;
-        if (hpEnemy == 0)
+        if (hpEnemy <= 0)
         {
-            WaveSpawner.EnemiesAlive--;
-            Destroy(gameObject); // Destroi o inimigo
-            moneyManager.GetComponent<MoneyManager>().AddMoney(35);
 
+            Die();
             
         }
         return;
+    }
+    void Die ()
+    {
+        WaveSpawner.EnemiesAlive--;
+        Destroy(gameObject); // Destroi o inimigo
+        moneyManager.GetComponent<MoneyManager>().AddMoney(35);
     }
 }

@@ -17,6 +17,9 @@ public class Arqueiro : MonoBehaviour
 
     [Header("Uso Laser")]
     public bool useLaser = false;
+
+    public int damageOverTime = 30;
+
     public LineRenderer lineRenderer;
 
     [Header("Unity Setup")]
@@ -64,7 +67,14 @@ public class Arqueiro : MonoBehaviour
     void Update()
     {
         if (target == null)
+        {
+            if (useLaser)
+            {
+                if (lineRenderer.enabled)
+                    lineRenderer.enabled = false;
+            }
             return;
+        }
 
         LockOnTarget();
 
@@ -94,8 +104,18 @@ public class Arqueiro : MonoBehaviour
 
         void Laser()
         {
+            targetEnemy.DamageTake(damageOverTime * Time.deltaTime);
+
+
+            if (!lineRenderer.enabled)
+                lineRenderer.enabled = true;
+            
+                
             lineRenderer.SetPosition(0, firePoint.position);
             lineRenderer.SetPosition(1, target.position);
+
+            Vector3 dir = firePoint.position - target.position;
+
         }
 
         void Shoot()
