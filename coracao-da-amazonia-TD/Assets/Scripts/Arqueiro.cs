@@ -6,12 +6,18 @@ public class Arqueiro : MonoBehaviour
 
     private Transform target;
     private Enemy targetEnemy;
-    [Header("Atributos")]
-    
+
+    [Header("Geral")]
     public float range = 15f;
+
+    [Header("Uso das Bullets")]
+    public GameObject bulletPrefab;
     public float fireRate = 1f;
     public float fireCountdown = 0f;
-    
+
+    [Header("Uso Laser")]
+    public bool useLaser = false;
+    public LineRenderer lineRenderer;
 
     [Header("Unity Setup")]
 
@@ -20,8 +26,6 @@ public class Arqueiro : MonoBehaviour
     public Transform partToRotate;
     public float turnSpeed = 10f;
 
-
-    public GameObject bulletPrefab;
     public Transform firePoint;
 
     void Start()
@@ -62,19 +66,37 @@ public class Arqueiro : MonoBehaviour
         if (target == null)
             return;
 
-        //Target lock on
-        Vector3 dir = target.position - transform.position;
-        Quaternion lookRotation = Quaternion.LookRotation(dir);
-        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
-        partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
-        
-        if (fireCountdown <= 0f)
+        LockOnTarget();
+
+        if (useLaser)
         {
-            Shoot();
-            fireCountdown = 1f / fireRate;
+            Laser();
+        } else
+        {
+            if (fireCountdown <= 0f)
+            {
+                Shoot();
+                fireCountdown = 1f / fireRate;
+            }
+
+            fireCountdown -= Time.deltaTime;
+        }
+        
+
+        void LockOnTarget()
+        {
+            //Target lock on
+            Vector3 dir = target.position - transform.position;
+            Quaternion lookRotation = Quaternion.LookRotation(dir);
+            Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
+            partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
         }
 
-        fireCountdown -= Time.deltaTime;
+        void Laser()
+        {
+            lineRenderer.SetPosition(0, firePoint.position);
+            lineRenderer.SetPosition(1, target.position);
+        }
 
         void Shoot()
         {
