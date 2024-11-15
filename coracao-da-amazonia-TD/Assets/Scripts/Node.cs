@@ -13,6 +13,8 @@ public class Node : MonoBehaviour
     private Color startColor;
 
     private GameObject arqueiro;
+    private GameObject cacique;
+    private GameObject paje;
 
 
     //config do panel TowerMenu
@@ -42,20 +44,16 @@ public class Node : MonoBehaviour
     {
         if (panel.activeSelf)
         {
-            Debug.Log("Painel já está ativo. Clique ignorado.");
             return; // Interrompe o método se o painel estiver ativo
         }
-
-        Debug.Log("Node clicado!");
-            //verifica se tem objeto construido neste node
-            if (arqueiro != null)
+        //verifica se tem objeto construido neste node
+        if (arqueiro != null)
             {
                 //se sim, impede que outro objeto seja construido no mesmo lugar
-                Debug.Log("Não da pra construir ai!");
                 return;
 
             }
-            else
+        else
             {
                 panel.SetActive(true);
                 TowerMenu.Instance.SelectNode(this);
@@ -71,7 +69,23 @@ public class Node : MonoBehaviour
         GameObject arqueiroToBuild = BuildManager.instance.GetArqueiroToBuild();
         //instancia o personagem no node, ajustando a posiçao com um positionOffset no ponto Y
         arqueiro = (GameObject)Instantiate(arqueiroToBuild, transform.position + positionOffset, transform.rotation);
-        Debug.Log("acionado");
+    }
+
+    public void Paje()
+    {
+
+        //prefab do arqueiro construido atraves do BuildManager
+        GameObject pajeToBuild = BuildManager.instance.GetPajeToBuild();
+        //instancia o personagem no node, ajustando a posiçao com um positionOffset no ponto Y
+        paje = (GameObject)Instantiate(pajeToBuild, transform.position + positionOffset, transform.rotation);
+    }
+    public void Cacique()
+    {
+
+        //prefab do arqueiro construido atraves do BuildManager
+        GameObject caciqueToBuild = BuildManager.instance.GetCaciqueToBuild();
+        //instancia o personagem no node, ajustando a posiçao com um positionOffset no ponto Y
+        cacique = (GameObject)Instantiate(caciqueToBuild, transform.position + positionOffset, transform.rotation);
     }
 
     //quando o cursor do mouse passa sobre o node

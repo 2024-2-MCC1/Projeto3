@@ -8,14 +8,11 @@ public class TowerMenu : MonoBehaviour
     private Node selectedNode;
     public GameObject moneyManager;
     public GameObject towerMenu;
-    public GameObject overlay;
 
     // Start is called before the first frame update
     void Start()
     {
         moneyManager = GameObject.Find("GameMaster"); ;
-        
-        
     }
 
     private void Awake()
@@ -36,20 +33,38 @@ public class TowerMenu : MonoBehaviour
                 HidePanel();
                 selectedNode.Arqueiro();
                 moneyManager.GetComponent<MoneyManager>().SubtractMoney(100);
-                
             }
-            
-            
         }
     }
-    
-    public void OverlayClick()
+    public void PajeButton()
     {
-        HidePanel ();
+        moneyManager.GetComponent<MoneyManager>().MoneyCheck(100);
+        if (moneyManager.GetComponent<MoneyManager>().moneyValidate == true)
+        {
+            if (selectedNode != null)
+            {
+                HidePanel();
+                selectedNode.Paje();
+                moneyManager.GetComponent<MoneyManager>().SubtractMoney(100);
+            }
+        }
     }
+    public void CaciqueButton()
+    {
+        moneyManager.GetComponent<MoneyManager>().MoneyCheck(100);
+        if (moneyManager.GetComponent<MoneyManager>().moneyValidate == true)
+        {
+            if (selectedNode != null)
+            {
+                HidePanel();
+                selectedNode.Cacique();
+                moneyManager.GetComponent<MoneyManager>().SubtractMoney(100);
+            }
+        }
+    }
+
     void HidePanel()
     {
         towerMenu.SetActive(false);
-        
     }
 }

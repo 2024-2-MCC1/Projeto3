@@ -5,79 +5,93 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [Header("Atributos")]
-    //Velocidade do inimigo
-    public float speed = 10.0f;
+    public float speed = 10.0f; // Velocidade do inimigo
+    public float hpEnemy = 50;
 
-    public int hpEnemy = 50;
-    //Objeto transform que indica o waypoint atual que o inimigo se dirige
     private Transform target;
-    //Indice que rastreia o waypoint atual no array de waypoints
     private int wavepointIndex = 0;
 
-
-    
-    //Puxar script do player
     private GameObject hpPlayer;
-
-    //Chama Script Money
     private GameObject moneyManager;
 
+    // Variáveis para debuff
+    private float originalSpeed;  // Armazena a velocidade original do inimigo
+    private bool isDebuffed = false; // Verifica se o inimigo está debuffado
+    private float debuffAmount = 0f; // A quantidade de debuff a ser aplicada
 
     void Start()
     {
-        //Procura o script do player no GameMaster
         hpPlayer = GameObject.Find("GameMaster");
-        moneyManager = GameObject.Find("GameMaster"); ;
+        moneyManager = GameObject.Find("GameMaster");
 
-        //Define o primeiro waypoint como alvo para o inimigo se mover
         target = Waypoints.points[0];
+
+        originalSpeed = speed;  // Armazena a velocidade original ao começar o jogo
     }
 
     void Update()
     {
-        //Calcula a direçao entre a posiçao atual do inimigo e o proximo waypoint
         Vector3 dir = target.position - transform.position;
-        //Move o inimigo na direçao com uma velocidade constante, ajustada por Time.deltaTime para movimento suave
         transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
 
-        //Verifica se o inimigo esta proximo o suficiente do waypoint atual para ir para o proximo waypoint
         if (Vector3.Distance(transform.position, target.position) <= 0.4f)
         {
-            //Se sim, chama o metodo
             GetNextWaypoint();
         }
     }
 
     void GetNextWaypoint()
     {
-        //Verifica se o inimigo chegou no ultimo waypoint
         if (wavepointIndex >= Waypoints.points.Length - 1)
         {
-            //Se sim, signfica que completou o caminho e destroi o objeto e dá dano
             hpPlayer.GetComponent<HpPlayer>().TomarDano(1);
             WaveSpawner.EnemiesAlive--;
             Destroy(gameObject);
             hpPlayer.GetComponent<HpPlayer>().Perder();
             return;
-
         }
-        //Se nao, define o proximo waypoint na lista como o novo alvo
+
         wavepointIndex++;
         target = Waypoints.points[wavepointIndex];
     }
 
-    public void DamageTake(int dano)
+    public void DamageTake(float dano)
     {
-
         hpEnemy = hpEnemy - dano;
-        if (hpEnemy == 0)
+        if (hpEnemy <= 0)
         {
-            WaveSpawner.EnemiesAlive--;
-            Destroy(gameObject); // Destroi o inimigo
-            moneyManager.GetComponent<MoneyManager>().AddMoney(35);
-
-            
+            Die();
         }
         return;
+    }
+
+    void Die()
+    {
+        WaveSpawner.EnemiesAlive--;
+        Destroy(gameObject);
+        moneyManager.GetComponent<MoneyManager>().AddMoney(35);
+    }
+
+    // Método para aplicar o debuff no inimigo
+    public void ApplyDebuff(float debuffAmount)
+    {
+        if (!isDebuffed)
+        {
+            this.debuffAmount = debuffAmount;
+            speed -= debuffAmount; // Reduz a velocidade do inimigo
+            speed = Mathf.Max(speed, 0f); // Impede que a velocidade se torne negativa
+            isDebuffed = true; // Marca o inimigo como debuffado
+            
+        }
+    }
+
+    // Método para remover o debuff
+    public void RemoveDebuff()
+    {
+        if (isDebuffed)
+        {
+            speed = originalSpeed; // Restaura a velocidade original
+            isDebuffed = false; // Marca o inimigo como sem debuff
+        }
     }
 }

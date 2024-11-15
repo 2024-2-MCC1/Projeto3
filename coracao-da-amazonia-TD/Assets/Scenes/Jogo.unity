@@ -452,6 +452,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standardArqueiroPrefab: {fileID: 6407390309309116305, guid: 9be09256a4e36b74fb2444849d359234, type: 3}
+  standardPajePrefab: {fileID: 6407390309309116305, guid: d1a3fcea0164bf74a8515cc75d94bd1e, type: 3}
+  standardCaciquePrefab: {fileID: 7138641859402521286, guid: 155d4156bc5180443be9135e46dfecf0, type: 3}
 --- !u!1 &193738919
 GameObject:
   m_ObjectHideFlags: 0
@@ -1853,15 +1855,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.3726415, b: 0.94412726, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 9b867a0e6b3058546a3581215688aac3, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1892,7 +1894,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moneyManager: {fileID: 0}
   towerMenu: {fileID: 685508524}
-  overlay: {fileID: 0}
 --- !u!1 &693129371
 GameObject:
   m_ObjectHideFlags: 0
@@ -3054,7 +3055,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1130095539}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 685508528}
+        m_TargetAssemblyTypeName: TowerMenu, Assembly-CSharp
+        m_MethodName: PajeButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1130095539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4598,7 +4611,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1960654351}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 685508528}
+        m_TargetAssemblyTypeName: TowerMenu, Assembly-CSharp
+        m_MethodName: CaciqueButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1960654351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4861,71 +4886,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3501847947347310539, guid: 79b624abe726706408e90a1ee9d2e248, type: 3}
   m_PrefabInstance: {fileID: 1149272612560719481}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &2058471111
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 579274707619423011, guid: d1a3fcea0164bf74a8515cc75d94bd1e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 10.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 579274707619423011, guid: d1a3fcea0164bf74a8515cc75d94bd1e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.41
-      objectReference: {fileID: 0}
-    - target: {fileID: 579274707619423011, guid: d1a3fcea0164bf74a8515cc75d94bd1e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -23.42
-      objectReference: {fileID: 0}
-    - target: {fileID: 579274707619423011, guid: d1a3fcea0164bf74a8515cc75d94bd1e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 579274707619423011, guid: d1a3fcea0164bf74a8515cc75d94bd1e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 579274707619423011, guid: d1a3fcea0164bf74a8515cc75d94bd1e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 579274707619423011, guid: d1a3fcea0164bf74a8515cc75d94bd1e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 579274707619423011, guid: d1a3fcea0164bf74a8515cc75d94bd1e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 579274707619423011, guid: d1a3fcea0164bf74a8515cc75d94bd1e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 579274707619423011, guid: d1a3fcea0164bf74a8515cc75d94bd1e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6407390309309116305, guid: d1a3fcea0164bf74a8515cc75d94bd1e, type: 3}
-      propertyPath: m_Name
-      value: Paje
-      objectReference: {fileID: 0}
-    - target: {fileID: 7046481579815623298, guid: d1a3fcea0164bf74a8515cc75d94bd1e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.175
-      objectReference: {fileID: 0}
-    - target: {fileID: 9113625511209991470, guid: d1a3fcea0164bf74a8515cc75d94bd1e, type: 3}
-      propertyPath: m_Positions.Array.data[1].z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d1a3fcea0164bf74a8515cc75d94bd1e, type: 3}
 --- !u!1 &2062710942
 GameObject:
   m_ObjectHideFlags: 0
@@ -7802,4 +7762,3 @@ SceneRoots:
   - {fileID: 1124936936}
   - {fileID: 2004607051}
   - {fileID: 170257054}
-  - {fileID: 2058471111}
