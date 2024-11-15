@@ -6,9 +6,11 @@ public class Cacique : MonoBehaviour
 {
     public float buffAmount = .5f; // Valor do buff para o fireRate
     public float debuffAmount = 5f; //Valor do debuff slow
-    public string enemyTag = "Enemy";
+    public Enemy alvo;
 
-    private HashSet<Enemy> debuffedEnemies = new HashSet<Enemy>();
+    //private HashSet<Enemy> debuffedEnemies = new HashSet<Enemy>();
+
+    private bool isDebuff;
 
     public void BuffFireRate(ShootersTowers torre)
     {
@@ -16,31 +18,33 @@ public class Cacique : MonoBehaviour
     }
     public void BuffSlow(ShootersTowers torre)
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
-
-        foreach (GameObject enemyObj in enemies)
+        alvo = torre.targetEnemy;
+        if (alvo != null)
         {
-            Enemy enemy = enemyObj.GetComponent<Enemy>();
-            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+            isDebuff = alvo.isDebuffed;
+        }
+        if (alvo == null) return;
 
-            if (distanceToEnemy <= torre.range)
+        float distanceToEnemy = Vector3.Distance(transform.position, alvo.transform.position);
+
+        if (distanceToEnemy <= torre.range)
+        {
+         // Aplica debuff
+            if (!isDebuff)
             {
-                // Aplica debuff
-                if (!debuffedEnemies.Contains(enemy))
-                {
-                    enemy.ApplyDebuff(debuffAmount);
-                    debuffedEnemies.Add(enemy);
-                }
+                alvo.ApplyDebuff(debuffAmount);
+                isDebuff = true;
             }
-            else
+         }
+        else
+        {
+            // Remove debuff se o inimigo sair do alcance
+            if (distanceToEnemy > torre.range && isDebuff)
             {
-                // Remove debuff se o inimigo sair do alcance
-                if (debuffedEnemies.Contains(enemy))
-                {
-                    enemy.RemoveDebuff();
-                    debuffedEnemies.Remove(enemy);
-                }
+                alvo.RemoveDebuff();
+                
             }
+            
         }
     }
 }

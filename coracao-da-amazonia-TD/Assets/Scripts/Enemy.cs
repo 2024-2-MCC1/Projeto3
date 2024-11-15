@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
 
     // Variáveis para debuff
     private float originalSpeed;  // Armazena a velocidade original do inimigo
-    private bool isDebuffed = false; // Verifica se o inimigo está debuffado
+    public bool isDebuffed = false; // Verifica se o inimigo está debuffado
     private float debuffAmount = 0f; // A quantidade de debuff a ser aplicada
 
     void Start()

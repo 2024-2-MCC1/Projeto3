@@ -63,7 +63,7 @@ public class TowerMenu : MonoBehaviour
         }
     }
 
-    void HidePanel()
+    public void HidePanel()
     {
         towerMenu.SetActive(false);
     }

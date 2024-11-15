@@ -4,7 +4,7 @@ using System.Collections;
 public class ShootersTowers : MonoBehaviour
 {
     private Transform target;
-    private Enemy targetEnemy;
+    public Enemy targetEnemy;
 
     [Header("Geral")]
     public float range = 15f;
