@@ -21,21 +21,31 @@ public class BuildManager : MonoBehaviour
     }
     //prefab publica
     public GameObject standardArqueiroPrefab;
-
+    public GameObject standardPajePrefab;
+    public GameObject standardCaciquePrefab;
     void Start()
     {
         //define standardArqueiroPrefab como o arqueiro a ser contruido e o armazena na variavel arqueiroToBuild
         arqueiroToBuild = standardArqueiroPrefab;
-
-        
+        pajeToBuild = standardPajePrefab;
+        caciqueToBuild = standardCaciquePrefab;
     }
     //prefab privada
     private GameObject arqueiroToBuild;
+    private GameObject pajeToBuild;
+    private GameObject caciqueToBuild;
     //metodo publico  para obter o prefab do arqueiro a ser contruido. Metodo retorna arqueiroToBuild e permite que todos os scripts acessem o prefab configurado para construçao
     public GameObject GetArqueiroToBuild()
     { 
         return arqueiroToBuild; 
-    } 
+    }
+    public GameObject GetPajeToBuild()
+    {
+        return pajeToBuild;
+    }
+    public GameObject GetCaciqueToBuild()
+    {
+        return caciqueToBuild;
+    }
 
-   
 }
