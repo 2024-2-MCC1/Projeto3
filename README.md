@@ -4,11 +4,11 @@
 <a href= "https://www.fecap.br/"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhZPrRa89Kma0ZZogxm0pi-tCn_TLKeHGVxywp-LXAFGR3B1DPouAJYHgKZGV0XTEf4AE&usqp=CAU" alt="FECAP - Fundação de Comércio Álvares Penteado" border="0"></a>
 </p>
 
-# Nome do Projeto
+# Coração da Amazônia TD  
 
-## Nome do Grupo
+## Valocode
 
-## Integrantes: <a href="https://www.linkedin.com/in/victorbarq/">Goku Sayajin</a>, <a href="https://www.linkedin.com/in/victorbarq/">Saitama One</a>, <a href="https://www.linkedin.com/in/victorbarq/">Ikki de Fenix</a>, <a href="https://www.linkedin.com/in/victorbarq/">Yusuke Urameshi</a>, <a href="https://www.linkedin.com/in/victorbarq/">Roronoa Zoro</a>
+## Integrantes: <a href="https://www.linkedin.com/in/eric-victor-bittu-silva-014a5b2b5/">Eric Victor Bittu Silva</a>, <a href="https://www.linkedin.com/in/victorbarq/">Vivian Kaori Umaki </a>, <a href="https://www.linkedin.com/in/victorbarq/">Felipe Toshio Yamaschita</a>, <a href="https://www.linkedin.com/in/victorbarq/">Yusuke Urameshi</a>, <a href="https://www.linkedin.com/in/victorbarq/">Roronoa Zoro</a>
 
 ## Professores Orientadores: <a href="https://www.linkedin.com/in/victorbarq/">Dr. Victor Von Doom</a>, <a href="https://www.linkedin.com/in/victorbarq/">Me. Saitama</a>, <a href="https://www.linkedin.com/in/victorbarq/">Dr. Strange</a>, <a href="https://www.linkedin.com/in/victorbarq/">Me. Yoda</a>, <a href="https://www.linkedin.com/in/victorbarq/">Dr. Gero</a>
 
@@ -20,12 +20,7 @@
 </p>
 
 
-De um a dois parágrafos sobre o que é seu projeto e o que ele faz.
-<br><br>
-Meu projeto ajuda estudantes FECAP a configurarem seus githubs.
-<br><br>
-May the force be with you!
-<br><br>
+Tower Defense com foco nos povos originários para Projeto Interdisciplinar do curso de Ciências da Computação na FECAP
 
 ## 🛠 Estrutura de pastas
 
@@ -59,16 +54,6 @@ Há também 4 pastas que seguem da seguinte forma:
 <b>src</b>: Pasta que contém o código fonte.
 
 ## 🛠 Instalação
-
-<b>Android:</b>
-
-Faça o Download do JOGO.apk no seu celular.
-Execute o APK e siga as instruções de seu telefone.
-
-```sh
-Coloque código do prompt de comnando se for necessário
-```
-
 <b>Windows:</b>
 
 Não há instalação! Apenas executável!
@@ -78,23 +63,28 @@ Encontre o JOGO.exe na pasta executáveis e execute-o como qualquer outro progra
 Coloque código do prompt de comnando se for necessário
 ```
 
-<b>HTML:</b>
-
-Não há instalação!
-Encontre o index.html na pasta executáveis e execute-o como uma página WEB (através de algum browser).
-
 ## 💻 Configuração para Desenvolvimento
 
-Descreva como instalar todas as dependências para desenvolvimento e como rodar um test-suite automatizado de algum tipo. Se necessário, faça isso para múltiplas plataformas.
+# Instalação do Unity via Linha de Comando  
 
-Para abrir este projeto você necessita das seguintes ferramentas:
+Este guia explica como instalar o Unity 6 e seus componentes usando a linha de comando, ideal para automações ou implantações em larga escala.  
 
--<a href="https://godotengine.org/download">GODOT</a>
+## Pré-requisitos  
+- Acesse o [arquivo de download do Unity](https://unity3d.com/get-unity/download/archive) para baixar o instalador adequado.  
+- Certifique-se de que possui permissões de administrador para realizar a instalação.  
 
-```sh
-make install
-npm test
-Coloque código do prompt de comnando se for necessário
+---
+
+## Instalação no **Windows**  
+### 1. Baixar e Configurar o Instalador  
+1. Faça o download do instalador e execute-o.  
+2. No menu de componentes, selecione aqueles necessários para sua configuração.  
+3. Escolha a opção **Download to** e defina uma pasta para armazenar os arquivos.  
+
+### 2. Executar a Instalação Silenciosa  
+Para instalar o Unity e seus componentes:  
+```bash
+UnitySetup64.exe /S /D=Caminho\Para\Instalacao
 ```
 
 ## 📋 Licença/License
