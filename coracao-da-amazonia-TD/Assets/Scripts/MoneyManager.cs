@@ -6,7 +6,7 @@ using JetBrains.Annotations;
 
 public class MoneyManager : MonoBehaviour
 {
-    public int money = 300; // Exemplo de variável de dinheiro
+    public int money = 150; // variável de dinheiro
     public TextMeshProUGUI moneyCount;
     // Método para adicionar dinheiro
     public void AddMoney(int amount)

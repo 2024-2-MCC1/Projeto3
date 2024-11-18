@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     [Header("Atributos")]
     public float speed = 10.0f; // Velocidade do inimigo
     public float hpEnemy = 50;
+    public int enemyDamage;
 
     private Transform target;
     private int wavepointIndex = 0;
@@ -31,10 +32,11 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+        transform.LookAt(target.position);
         Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
 
-        if (Vector3.Distance(transform.position, target.position) <= 0.4f)
+        if (Vector3.Distance(transform.position, target.position) <= 0.9f)
         {
             GetNextWaypoint();
         }
@@ -44,7 +46,7 @@ public class Enemy : MonoBehaviour
     {
         if (wavepointIndex >= Waypoints.points.Length - 1)
         {
-            hpPlayer.GetComponent<HpPlayer>().TomarDano(1);
+            hpPlayer.GetComponent<HpPlayer>().TomarDano(enemyDamage);
             WaveSpawner.EnemiesAlive--;
             Destroy(gameObject);
             hpPlayer.GetComponent<HpPlayer>().Perder();

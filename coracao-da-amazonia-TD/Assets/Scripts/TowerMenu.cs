@@ -25,40 +25,40 @@ public class TowerMenu : MonoBehaviour
     }
     public void ArqueiroButton()
     {
-        moneyManager.GetComponent<MoneyManager>().MoneyCheck(100);
+        moneyManager.GetComponent<MoneyManager>().MoneyCheck(50);
         if (moneyManager.GetComponent<MoneyManager>().moneyValidate == true)
         {
             if (selectedNode != null)
             {
                 HidePanel();
                 selectedNode.Arqueiro();
-                moneyManager.GetComponent<MoneyManager>().SubtractMoney(100);
+                moneyManager.GetComponent<MoneyManager>().SubtractMoney(50);
             }
         }
     }
     public void PajeButton()
     {
-        moneyManager.GetComponent<MoneyManager>().MoneyCheck(100);
+        moneyManager.GetComponent<MoneyManager>().MoneyCheck(165);
         if (moneyManager.GetComponent<MoneyManager>().moneyValidate == true)
         {
             if (selectedNode != null)
             {
                 HidePanel();
                 selectedNode.Paje();
-                moneyManager.GetComponent<MoneyManager>().SubtractMoney(100);
+                moneyManager.GetComponent<MoneyManager>().SubtractMoney(165);
             }
         }
     }
     public void CaciqueButton()
     {
-        moneyManager.GetComponent<MoneyManager>().MoneyCheck(100);
+        moneyManager.GetComponent<MoneyManager>().MoneyCheck(125);
         if (moneyManager.GetComponent<MoneyManager>().moneyValidate == true)
         {
             if (selectedNode != null)
             {
                 HidePanel();
                 selectedNode.Cacique();
-                moneyManager.GetComponent<MoneyManager>().SubtractMoney(100);
+                moneyManager.GetComponent<MoneyManager>().SubtractMoney(125);
             }
         }
     }

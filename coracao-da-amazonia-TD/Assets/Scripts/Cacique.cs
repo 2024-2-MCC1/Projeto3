@@ -7,6 +7,7 @@ public class Cacique : MonoBehaviour
     public float buffAmount = .5f; // Valor do buff para o fireRate
     public float debuffAmount = 5f; //Valor do debuff slow
     public Enemy alvo;
+    public Animator animator;
 
     //private HashSet<Enemy> debuffedEnemies = new HashSet<Enemy>();
 
@@ -15,6 +16,7 @@ public class Cacique : MonoBehaviour
     public void BuffFireRate(ShootersTowers torre)
     {
         torre.fireRate += buffAmount;
+        animator.SetBool("buffer", true);
     }
     public void BuffSlow(ShootersTowers torre)
     {

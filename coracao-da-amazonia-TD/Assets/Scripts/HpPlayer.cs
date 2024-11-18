@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class HpPlayer : MonoBehaviour
 {
     public TextMeshProUGUI hpCount;
@@ -20,7 +21,7 @@ public class HpPlayer : MonoBehaviour
         }
         if (gameOver == true) 
         {
-            Debug.Log("Perdi");
+            SceneManager.LoadScene("GameOver");
         }
 
     }
