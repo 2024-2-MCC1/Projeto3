@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 public class WaveSpawner : MonoBehaviour
 {
     public static int EnemiesAlive = 0;
@@ -56,6 +56,10 @@ public class WaveSpawner : MonoBehaviour
         }
         //incrementa o numero da onda
         waveIndex++;
+        if (waveIndex == 6)
+        {
+            SceneManager.LoadScene("Win");
+        }
     }
 
     void SpawnEnemy (GameObject enemy)

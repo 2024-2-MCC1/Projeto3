@@ -1049,7 +1049,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  hpEnemy: 15
+  hpEnemy: 100
+  enemyDamage: 10
   isDebuffed: 0
 --- !u!54 &4737512953053057212
 Rigidbody:

@@ -61,7 +61,7 @@ public class Node : MonoBehaviour
             }
         
     }
-
+    
     public void Arqueiro()
     {
         
