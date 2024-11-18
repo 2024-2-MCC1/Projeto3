@@ -5,6 +5,7 @@ public class ShootersTowers : MonoBehaviour
 {
     private Transform target;
     public Enemy targetEnemy;
+    public Animator animator;
 
     [Header("Geral")]
     public float range = 15f;
@@ -30,6 +31,7 @@ public class ShootersTowers : MonoBehaviour
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        animator = GetComponent<Animator>();
     }
 
     void UpdateTarget()
@@ -48,6 +50,11 @@ public class ShootersTowers : MonoBehaviour
             {
                 shortestEnemyDistance = distanceToEnemy;
                 nearestEnemy = enemy;
+                animator.SetBool("atacou", true);
+            }
+            else
+            {
+                animator.SetBool("atacou" , false);
             }
         }
         if (!useLaser && fireRate < 2.5f) 

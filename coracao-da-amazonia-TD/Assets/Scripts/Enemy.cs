@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+        transform.LookAt(target.position);
         Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
 
