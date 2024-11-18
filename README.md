@@ -8,9 +8,9 @@
 
 ## Valocode
 
-## Integrantes: <a href="https://www.linkedin.com/in/eric-victor-bittu-silva-014a5b2b5/">Eric Victor Bittu Silva</a>, <a href="https://www.linkedin.com/in/victorbarq/">Vivian Kaori Umaki </a>, <a href="https://www.linkedin.com/in/victorbarq/">Felipe Toshio Yamaschita</a>, <a href="https://www.linkedin.com/in/victorbarq/">Yusuke Urameshi</a>, <a href="https://www.linkedin.com/in/victorbarq/">Roronoa Zoro</a>
+## Integrantes: <a href="https://www.linkedin.com/in/eric-victor-bittu-silva-014a5b2b5/">Eric Victor Bittu Silva</a>, <a href="https://www.linkedin.com/in/victorbarq/">Vivian Kaori Umaki </a>, <a href="https://www.linkedin.com/in/victorbarq/">Felipe Toshio Yamaschita</a>
 
-## Professores Orientadores: <a href="https://www.linkedin.com/in/victorbarq/">Dr. Victor Von Doom</a>, <a href="https://www.linkedin.com/in/victorbarq/">Me. Saitama</a>, <a href="https://www.linkedin.com/in/victorbarq/">Dr. Strange</a>, <a href="https://www.linkedin.com/in/victorbarq/">Me. Yoda</a>, <a href="https://www.linkedin.com/in/victorbarq/">Dr. Gero</a>
+## Professores Orientadores: <a href="https://www.linkedin.com/in/victorbarq/">Victor Bruno Alexander Rosetti de Quiroz</a>, <a href="https://www.linkedin.com/in/fabiano-on%C3%A7a-3214a12/">Fabiano Onça</a>, <a Adriano Felix Valente</a>, <a href="https://www.linkedin.com/in/francisco-escobar/?originalSubdomain=br">Francisco de Souza Escobar</a>, <a href="https://www.linkedin.com/in/jo%C3%A3o-pedro-da-costa-pinto-40876b74/">Joao Pedro da Costa Pinto</a>
 
 ## Descrição
 
@@ -24,34 +24,23 @@ Tower Defense com foco nos povos originários para Projeto Interdisciplinar do c
 
 ## 🛠 Estrutura de pastas
 
--Raiz<br>
+-coracao-da-amazonia-TD<br>
 |<br>
-|-->documentos<br>
-  &emsp;|-->antigos<br>
+|-->Assets<br>
+  &emsp;|-->ADG_Textures<br>
+  &emsp;|-->Animations<br>
+  &emsp;|-->Enemies<br>
+  &emsp;|-->Materials<br>
+  &emsp;|-->Prefabs<br>
+  &emsp;|-->Scenes<br>
+  &emsp;|-->Scripts<br>
+  &emsp;|-->Sprites<br>
+  &emsp;|-->TextMesh Pro<br>
   &emsp;|Documentação.docx<br>
-|-->executáveis<br>
-  &emsp;|-->windows<br>
-  &emsp;|-->android<br>
-  &emsp;|-->HTML<br>
-|-->imagens<br>
-|-->src<br>
-  &emsp;|-->Backend<br>
-  &emsp;|-->Frontend<br>
+|.gitignore<br>
 |readme.md<br>
 
-A pasta raiz contem dois arquivos que devem ser alterados:
 
-<b>README.MD</b>: Arquivo que serve como guia e explicação geral sobre seu projeto. O mesmo que você está lendo agora.
-
-Há também 4 pastas que seguem da seguinte forma:
-
-<b>documentos</b>: Toda a documentação estará nesta pasta.
-
-<b>executáveis</b>: Binários e executáveis do projeto devem estar nesta pasta.
-
-<b>imagens</b>: Imagens do sistema
-
-<b>src</b>: Pasta que contém o código fonte.
 
 ## 🛠 Instalação
 <b>Windows:</b>
@@ -83,8 +72,15 @@ Este guia explica como instalar o Unity 6 e seus componentes usando a linha de c
 
 ### 2. Executar a Instalação Silenciosa  
 Para instalar o Unity e seus componentes:  
-```bash
+```sh
 UnitySetup64.exe /S /D=Caminho\Para\Instalacao
+```
+## Instalar Componentes Adicionais  
+
+###Assets Padrão  
+Para instalar os Assets Padrão de forma silenciosa, utilize o comando:  
+```bash
+UnityStandardAssetsSetup.exe /S /D=Caminho\Para\Unity
 ```
 
 ## 📋 Licença/License
@@ -94,9 +90,5 @@ UnitySetup64.exe /S /D=Caminho\Para\Instalacao
 
 Aqui estão as referências usadas no projeto.
 
-1. <https://github.com/iuricode/readme-template>
-2. <https://github.com/gabrieldejesus/readme-model>
-3. <https://chooser-beta.creativecommons.org/>
-4. <https://freesound.org/>
-5. <https://www.toptal.com/developers/gitignore>
-6. Músicas por: <a href="https://freesound.org/people/DaveJf/sounds/616544/"> DaveJf </a> e <a href="https://freesound.org/people/DRFX/sounds/338986/"> DRFX </a> ambas com Licença CC 0.
+1. https://github.com/Brackeys/Tower-Defense-Tutorial
+2.
